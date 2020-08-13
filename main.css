@@ -44,6 +44,16 @@ h2 {
     border-radius: 15px;
     transition: .2s;
 }
+#number-select a {
+    display: flex;
+    justify-content: center;
+    padding: 8rem;
+    text-decoration: none;
+    border-radius: 15px;
+    transition: .2s;
+    background-color: #fff;
+    color: #272034;
+}
 
 @media screen and (max-width: 820px){
     h1 {

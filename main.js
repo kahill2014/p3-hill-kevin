@@ -38,10 +38,19 @@ $(function(){
 
                 if(colorStringLength == 0){
                     $("body").css("background-color", colorValues[$("#color-select a").index(tempThis)]);
-                    clearInterval(changeColor)
+                    clearInterval(changeColor);
+                    $("#number-select").fadeIn(2000);
                 }
             }, 1000);
-        })
+        });
+    });
+
+    $("#number-select a").click(function(e){
+        e.preventDefault();
+
+        $("number-select").fadeOut(1000, function(){
+            // Do something when number selected
+        });
     });
 
     // Increase blur when hovering over a color
