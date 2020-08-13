@@ -2,7 +2,7 @@ body {
     padding: 0;
     margin: 0;
 }
-main, section, body, h1 {
+main, section, body, h1, h2 {
     display: flex;
     flex: 1;
     flex-basis: 100%;
@@ -22,6 +22,12 @@ h1 {
 }
 #intro-screen {
     display: none;
+}
+#color-select {
+    display: none;
+}
+#color-select a {
+
 }
 
 @media screen and (max-width: 820px){
