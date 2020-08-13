@@ -6,6 +6,7 @@ $(function(){
     colors["purple"] = "#513E78";
     var colorValues = Object.values(colors);
     var keyValues = Object.keys(colors);
+    var currentColor;
 
     // Set background color programatically for each button
     $("#color-select a").each(function(index){
@@ -30,14 +31,15 @@ $(function(){
         var tempThis = this;
 
         $("#color-select").fadeOut(1000, function(){
-            var colorStringLength = keyValues[$("#color-select a").index(tempThis)].length;
+            var colorStringLength = keyValues[$("#color-select a").index(tempThis)].length+1;
 
             var changeColor = setInterval(function(){
                 $("body").css("background-color", getRandomColor());
                 colorStringLength--;
 
                 if(colorStringLength == 0){
-                    $("body").css("background-color", colorValues[$("#color-select a").index(tempThis)]);
+                    currentColor = colorValues[$("#color-select a").index(tempThis)]
+                    $("body").css("background-color", currentColor);
                     clearInterval(changeColor);
                     $("#number-select").fadeIn(2000);
                 }
@@ -47,10 +49,23 @@ $(function(){
 
     $("#number-select a").click(function(e){
         e.preventDefault();
+        var numSelected = parseInt($(this).text())+1;
 
-        $("number-select").fadeOut(1000, function(){
-            // Do something when number selected
-        });
+        var changeNumber = setInterval(function(){
+            setTimeout(function(){
+                $("#number-select a").css("background-color", "#fff");
+            }, 500);
+            var randomNumber = Math.floor((Math.random() * 3));
+            $("#number-select a").eq(randomNumber).css("background-color", currentColor);
+            numSelected--;
+            console.log(numSelected);
+
+            if(numSelected == 0){
+                $("#number-select a").css("background-color", "#fff");
+                clearInterval(changeNumber);
+                $("#number-select").fadeOut(2000);
+            }
+        }, 1000);
     });
 
     // Increase blur when hovering over a color
