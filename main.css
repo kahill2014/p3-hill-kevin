@@ -20,14 +20,28 @@ h1 {
     font-weight: 700;
     font-size: 5em;
 }
+h2 {
+    font-family: utopia-std, serif;
+    font-style: bold;
+    font-weight: 700;
+    font-size: 3em;
+    margin-top: -10rem;
+}
 #intro-screen {
     display: none;
 }
 #color-select {
     display: none;
+    justify-content: space-around;
+    padding: 0 2em;
 }
 #color-select a {
-
+    display: flex;
+    justify-content: center;
+    padding: 8rem;
+    text-decoration: none;
+    border-radius: 15px;
+    transition: .2s;
 }
 
 @media screen and (max-width: 820px){

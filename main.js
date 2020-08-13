@@ -4,6 +4,7 @@ $(function(){
     // Set background color programatically for each button
     $("#color-select a").each(function(index){
         $(this).css("background-color", colors[index]);
+        $(this).css("box-shadow", "0 0 10px 5px " + colors[index])
     });
 
     // Introduction screen animation
@@ -20,5 +21,10 @@ $(function(){
     // Color select screen handler
     $("#color-select a").click(function(e){
         e.preventDefault();
+    });
+    $("#color-select a").hover(function(e){
+        $(this).css("box-shadow", "0 0 20px 20px " + colors[$("#color-select a").index(this)]);
+    }, function(){
+        $(this).css("box-shadow", "0 0 10px 5px " + colors[$("#color-select a").index(this)]);
     });
 })
