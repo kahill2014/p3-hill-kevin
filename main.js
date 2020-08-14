@@ -7,6 +7,7 @@ $(function(){
     var colorValues = Object.values(colors);
     var keyValues = Object.keys(colors);
     var currentColor;
+    // Source for fortunes: https://quotes.yourdictionary.com/articles/funny-fortune-cookie-sayings.html
     var fortunes = [
         "The fortune you seek is in another cookie.",
         "A closed mouth gathers no feet.",
@@ -27,15 +28,14 @@ $(function(){
     });
 
     // Introduction screen animation
-    // setTimeout(function(){
-    //     $("#intro-screen").fadeIn(2000);
-    // }, 1000);
-    // setTimeout(function(){
-    //     $("#intro-screen").fadeOut(2000, function(){
-    //         $("#color-select").fadeIn(2000);
-    //     });
-    // }, 5000);
-    $("#color-select").fadeIn(2000);
+    setTimeout(function(){
+        $("#intro-screen").fadeIn(2000);
+    }, 1000);
+    setTimeout(function(){
+        $("#intro-screen").fadeOut(2000, function(){
+            $("#color-select").fadeIn(2000);
+        });
+    }, 5000);
 
     // Color select screen handler
     $("#color-select a").click(function(e){
@@ -59,6 +59,7 @@ $(function(){
         });
     });
 
+    // Number select screen handler
     $("#number-select a").click(function(e){
         e.preventDefault();
         var numSelected = parseInt($(this).text())+1;
@@ -81,6 +82,7 @@ $(function(){
         }, 1000);
     });
 
+    // Fortune reveal handler
     $("#fortune-select a").click(function(e){
         e.preventDefault();
 
@@ -92,7 +94,7 @@ $(function(){
         });
     });
 
-    // Increase blur when hovering over a color
+    // Increase glow when hovering over a color
     $("#color-select a").hover(function(e){
         $(this).css("box-shadow", "0 0 20px 20px " + colorValues[$("#color-select a").index(this)]);
     }, function(){
