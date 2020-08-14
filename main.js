@@ -7,6 +7,18 @@ $(function(){
     var colorValues = Object.values(colors);
     var keyValues = Object.keys(colors);
     var currentColor;
+    var fortunes = [
+        "The fortune you seek is in another cookie.",
+        "A closed mouth gathers no feet.",
+        "A conclusion is simply the place where you got tired of thinking.",
+        "A cynic is only a frustrated optimist.",
+        "A foolish man listens to his heart. A wise man listens to cookies.",
+        "A fanatic is one who can't change his mind, and won't change the subject.",
+        "If you look back, you'll soon be going that way.",
+        "You will live long enough to open many fortune cookies.",
+        "An alien of some sort will be appearing to you shortly.",
+        "Do not mistake temptation for opportunity."
+    ];
 
     // Set background color programatically for each button
     $("#color-select a").each(function(index){
@@ -58,14 +70,26 @@ $(function(){
             var randomNumber = Math.floor((Math.random() * 3));
             $("#number-select a").eq(randomNumber).css("background-color", currentColor);
             numSelected--;
-            console.log(numSelected);
 
             if(numSelected == 0){
                 $("#number-select a").css("background-color", "#fff");
                 clearInterval(changeNumber);
-                $("#number-select").fadeOut(2000);
+                $("#number-select").fadeOut(2000, function(){
+                    $("#fortune-select").fadeIn(2000);
+                });
             }
         }, 1000);
+    });
+
+    $("#fortune-select a").click(function(e){
+        e.preventDefault();
+
+        var randomNumber = Math.floor((Math.random() * 9));
+        $("#fortune").text(fortunes[randomNumber]);
+
+        $("#fortune-select").fadeOut(2000, function(){
+            $("#reveal").fadeIn(2000);
+        });
     });
 
     // Increase blur when hovering over a color
