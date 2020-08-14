@@ -20,14 +20,16 @@ h1 {
     font-style: bold;
     font-weight: 700;
     font-size: 5em;
+    color: #272034;
 }
 h2 {
-    font-family: utopia-std, serif;
-    font-style: bold;
-    font-weight: 700;
+    font-family: raleway, sans-serif;
+    font-style: normal;
+    font-weight: 600;
     font-size: 3em;
     margin-top: -10rem;
     text-align: center;
+    color: #fff;
 }
 p, a {
     font-family: raleway, sans-serif;
@@ -56,8 +58,8 @@ a {
     justify-content: space-around;
     padding: 0 2em;
 }
-#number-select h2, #fortune-select h2, #reveal h2 {
-    color: #fff;
+#color-select h2 {
+    color: #272034;
 }
 #number-select a, #fortune-select a {
     background-color: #fff;
