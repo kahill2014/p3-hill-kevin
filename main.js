@@ -67,7 +67,7 @@ $(function(){
             setTimeout(function(){
                 $("#number-select a").css("background-color", "#fff");
             }, 500);
-            var randomNumber = Math.floor((Math.random() * 3));
+            var randomNumber = Math.floor((Math.random() * 4));
             $("#number-select a").eq(randomNumber).css("background-color", currentColor);
             numSelected--;
 
@@ -84,7 +84,7 @@ $(function(){
     $("#fortune-select a").click(function(e){
         e.preventDefault();
 
-        var randomNumber = Math.floor((Math.random() * 9));
+        var randomNumber = Math.floor((Math.random() * 10));
         $("#fortune").text(fortunes[randomNumber]);
 
         $("#fortune-select").fadeOut(2000, function(){
